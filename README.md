@@ -20,6 +20,12 @@ Este repositório contém scripts para gerenciar buckets e objetos em um serviç
   - `boto3` (biblioteca AWS SDK para Python)
   - `urllib3`
 
+- Para scripts NodeJS
+  - NodeJS 20
+  - @aws-sdk/client-s3
+  - @aws-sdk/node-http-handler
+  - commander
+
 ### Passos para Instalação
 
 #### PHP
@@ -63,6 +69,27 @@ Crie um arquivo credentials.json no diretório php/ com o seguinte conteúdo:
     "secret_key": "CHAVE_SECRET"
     }
    ```
+
+#### NodeJS
+1. **Navegue até a pasta node/:**
+   ```bash
+   cd node
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install @aws-sdk/client-s3 @aws-sdk/node-http-handler commander
+   ```
+
+3. **Configurar as credenciais**
+   ```json
+    {
+    "endpoint_url": "https://s3.com4.com.br",
+    "access_key": "CHAVE_DE_ACESSO",
+    "secret_key": "CHAVE_SECRET"
+    }
+   ```
+
 ## Scripts Disponíveis
 ### PHP
 * Criar um Bucket: php create_bucket.php create-bucket --bucket-name <NOME_DO_BUCKET>
@@ -82,17 +109,28 @@ Crie um arquivo credentials.json no diretório php/ com o seguinte conteúdo:
 * Listar Objetos: python object_listar.py --bucket-name <NOME_DO_BUCKET>
 * Alterar Visibilidade de um Objeto: python object_visibilidade.py --bucket-name <NOME_DO_BUCKET> --key-name <NOME_DO_ARQUIVO> --public true ou --public false
 
+### NodeJS
+* Criar um Bucket: node bucket-criar.js --bucket-name <NOME_DO_BUCKET>
+* Excluir um Bucket: node bucket-excluir.js --bucket-name <NOME_DO_BUCKET>
+* Listar Buckets: node bucket-listar.js
+* Enviar um Objeto: node object-enviar.js --bucket-name <NOME_DO_BUCKET> --key-name <NOME_DA_CHAVE> --path <CAMINHO_DO_ARQUIVO> ou --data "<DADOS_DO_ARQUIVO>"
+* Excluir um Objeto: node object-excluir.js --bucket-name <NOME_DO_BUCKET> --key-name <NOME_DA_CHAVE>
+* Listar Objetos: node object-listar.js --bucket-name <NOME_DO_BUCKET>
+* Alterar Visibilidade de um Objeto: node object-visibilidade.js --bucket-name <NOME_DO_BUCKET> --key-name <NOME_DA_CHAVE> --public true ou --public false
+
 ## Palavras-chave
 * S3 Bucket Management
 * S3 Object Management
 * PHP S3 Scripts
 * Python S3 Scripts
+* NodeJS S3 Scripts
 * AWS S3
 * Storage Management
 * Cloud Storage
 * S3 API
 * Boto3
 * AWS SDK for PHP
+* AWS SDK for NodeJS
 
 ## Observações
 * Certifique-se de que as credenciais e o endpoint fornecidos no arquivo credentials.json estão corretos.
